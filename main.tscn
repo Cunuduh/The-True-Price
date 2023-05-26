@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1egjkhokky36"]
+
+[ext_resource type="Texture2D" uid="uid://bp75jea3mufsa" path="res://textures/text_messages.png" id="1_mmiye"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(51, 94)
+texture = ExtResource("1_mmiye")
