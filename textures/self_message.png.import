@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btoftocr2pysb"
-path="res://.godot/imported/self_message_end.png-e05138fcd0a9c7b63581f6bafa9d44ce.ctex"
+uid="uid://fn8hlcsvyve4"
+path="res://.godot/imported/self_message.png-d59d3df95221a3d20dfd6b04a64d049e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/self_message_end.png"
-dest_files=["res://.godot/imported/self_message_end.png-e05138fcd0a9c7b63581f6bafa9d44ce.ctex"]
+source_file="res://textures/self_message.png"
+dest_files=["res://.godot/imported/self_message.png-d59d3df95221a3d20dfd6b04a64d049e.ctex"]
 
 [params]
 

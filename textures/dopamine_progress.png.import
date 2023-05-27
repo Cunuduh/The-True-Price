@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4u02apq7mq82"
-path="res://.godot/imported/self_message_stem.png-c9aa3709d800b44f8e48d7611360a8b4.ctex"
+uid="uid://cjb3yqrkcaoq5"
+path="res://.godot/imported/dopamine_progress.png-9ab0d0decf3e181bcad435ea0ceff336.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/self_message_stem.png"
-dest_files=["res://.godot/imported/self_message_stem.png-c9aa3709d800b44f8e48d7611360a8b4.ctex"]
+source_file="res://textures/dopamine_progress.png"
+dest_files=["res://.godot/imported/dopamine_progress.png-9ab0d0decf3e181bcad435ea0ceff336.ctex"]
 
 [params]
 

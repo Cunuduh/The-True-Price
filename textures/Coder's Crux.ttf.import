@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://1qk0v4n7igmc"
+path="res://.godot/imported/Coder's Crux.ttf-9f0ffaf4e9c40a1c4ea37beffefee552.fontdata"
+
+[deps]
+
+source_file="res://textures/Coder's Crux.ttf"
+dest_files=["res://.godot/imported/Coder's Crux.ttf-9f0ffaf4e9c40a1c4ea37beffefee552.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

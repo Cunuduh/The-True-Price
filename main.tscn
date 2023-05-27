@@ -1,9 +1,100 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1egjkhokky36"]
+[gd_scene load_steps=10 format=3 uid="uid://c1egjkhokky36"]
 
-[ext_resource type="Texture2D" uid="uid://bp75jea3mufsa" path="res://textures/text_messages.png" id="1_mmiye"]
+[ext_resource type="Texture2D" uid="uid://cnhve4lxixbyc" path="res://textures/text_messages.png" id="1_mmiye"]
+[ext_resource type="Texture2D" uid="uid://cjxl63xfcj7yn" path="res://textures/dopamine_border.png" id="2_0ebr4"]
+[ext_resource type="Texture2D" uid="uid://cjb3yqrkcaoq5" path="res://textures/dopamine_progress.png" id="2_wjvqs"]
+[ext_resource type="Script" path="res://scripts/DopamineController.cs" id="4_64nc1"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="5_p3lh2"]
+[ext_resource type="Texture2D" uid="uid://fn8hlcsvyve4" path="res://textures/self_message.png" id="6_2mh3x"]
+[ext_resource type="Texture2D" uid="uid://dahurnehddfkv" path="res://textures/other_message.png" id="7_mpscm"]
+[ext_resource type="FontFile" uid="uid://cbmmlgyyr17p7" path="res://Coder's Crux.ttf" id="7_ym2ub"]
+
+[sub_resource type="Theme" id="Theme_ewymf"]
+default_font = ExtResource("7_ym2ub")
+default_font_size = 16
 
 [node name="Main" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(51, 94)
+[node name="DopamineTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="TextMessages" type="Sprite2D" parent="."]
+position = Vector2(96, 180)
+scale = Vector2(2, 2)
 texture = ExtResource("1_mmiye")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 179.0
+scale = Vector2(2, 2)
+metadata/_edit_lock_ = true
+
+[node name="DopamineProgress" type="TextureProgressBar" parent="Control"]
+z_index = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 95.0
+offset_bottom = 15.0
+value = 100.0
+rounded = true
+texture_over = ExtResource("2_0ebr4")
+texture_progress = ExtResource("2_wjvqs")
+texture_progress_offset = Vector2(0, 1)
+
+[node name="DopamineController" type="Node" parent="."]
+script = ExtResource("4_64nc1")
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("5_p3lh2")
+
+[node name="SelfMessage" type="NinePatchRect" parent="."]
+offset_left = 77.0
+offset_top = 68.0
+offset_right = 133.0
+offset_bottom = 81.0
+scale = Vector2(2, 2)
+texture = ExtResource("6_2mh3x")
+patch_margin_left = 3
+patch_margin_top = 4
+patch_margin_right = 5
+patch_margin_bottom = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SelfMessage"]
+z_index = 2
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 101.0
+offset_bottom = 15.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_ewymf")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "hop on val trust"
+
+[node name="SelfMessage2" type="NinePatchRect" parent="."]
+offset_left = 3.0
+offset_top = 111.0
+offset_right = 59.0
+offset_bottom = 141.0
+scale = Vector2(2, 2)
+texture = ExtResource("7_mpscm")
+patch_margin_left = 5
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SelfMessage2"]
+z_index = 2
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 109.0
+offset_bottom = 51.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_ewymf")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Nah bro imma go out for a vape with my friends (good influences u should come too)"
+autowrap_mode = 2
