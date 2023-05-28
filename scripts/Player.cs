@@ -1,6 +1,6 @@
 using Godot;
 using System.Collections.Generic;
-
+namespace WasItWorthIt;
 public partial class Player : Node
 {
 	[Signal] public delegate void InteractionScoreChangeEventHandler(Godot.Collections.Dictionary<string, int> interactionScore);

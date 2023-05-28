@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+namespace WasItWorthIt;
 public partial class DopamineController : Node
 {
 	[Signal] public delegate void DopamineChangeEventHandler(int dopamine);
