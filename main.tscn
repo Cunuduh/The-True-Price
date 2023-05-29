@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1egjkhokky36"]
+[gd_scene load_steps=8 format=3 uid="uid://djbwabq3kh0cj"]
 
 [ext_resource type="Texture2D" uid="uid://cnhve4lxixbyc" path="res://textures/text_messages.png" id="1_mmiye"]
 [ext_resource type="Texture2D" uid="uid://cjxl63xfcj7yn" path="res://textures/dopamine_border.png" id="2_0ebr4"]
 [ext_resource type="PackedScene" uid="uid://xgkyjit11bk6" path="res://dialogue_container_other.tscn" id="2_5r3xv"]
 [ext_resource type="PackedScene" uid="uid://cg1yvuf6vdhns" path="res://dialogue_container_self.tscn" id="2_kfyas"]
 [ext_resource type="Texture2D" uid="uid://cjb3yqrkcaoq5" path="res://textures/dopamine_progress.png" id="2_wjvqs"]
-[ext_resource type="Script" path="res://scripts/DopamineController.cs" id="4_64nc1"]
-[ext_resource type="Script" path="res://scripts/Player.cs" id="5_p3lh2"]
+[ext_resource type="Script" path="res://WasItWorthIt/DopamineController.cs" id="4_64nc1"]
+[ext_resource type="Script" path="res://WasItWorthIt/Player.cs" id="5_p3lh2"]
 
 [node name="Main" type="Node2D"]
 
@@ -47,7 +47,6 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 95.0
 offset_bottom = 15.0
-value = 100.0
 rounded = true
 texture_over = ExtResource("2_0ebr4")
 texture_progress = ExtResource("2_wjvqs")

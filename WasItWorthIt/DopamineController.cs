@@ -22,7 +22,7 @@ public partial class DopamineController : Node
 		_dopamineTimer = GetNode<Timer>("../DopamineTimer");
 		DopamineChange += OnDopamineChange;
 		_dopamineTimer.Timeout += CheckDopamine;
-		Dopamine = 75;
+		Dopamine = 0;
 	}
 	public override void _Process(double delta)
 	{

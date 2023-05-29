@@ -23,7 +23,7 @@ public partial class Player : Node
 	}
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (@event is InputEventKey eventKey)
+        if (@event is InputEventKey eventKey && eventKey.Pressed)
 		{
 			switch (eventKey.Keycode)
 			{
@@ -32,8 +32,8 @@ public partial class Player : Node
 					break;
 				case Key.Space:
 					_vapeHits++;
-					_dopamineController.Dopamine += Mathf.RoundToInt(50 * 1/_vapeHits);
-					GD.Print($"Dopamine added: {Mathf.RoundToInt(50 * 1/_vapeHits)}");
+					_dopamineController.Dopamine += Mathf.RoundToInt(25 * 1/_vapeHits);
+					GD.Print($"Dopamine added: {Mathf.RoundToInt(25 * 1/_vapeHits)}");
 					break;
 			}
 		}
