@@ -61,11 +61,23 @@ public class ExampleUsage
             {
                 if (dialogueBuilder.Responses["OK, I will come"])
                 {
-                    GD.Print("You went to Brazil!");
+                    var brazilDialogue = new DialogueBuilder("Brazil Event")
+                        .WithText(new Dictionary<Dialogue.Characters, string>
+                        {
+                            { Dialogue.Characters.NPC, "Just ordered an uber for us. Pls come as soon as possible" },
+                            { Dialogue.Characters.Player, "OK, I'm coming" }
+                        })
+                        .Build();
                 }
                 else
                 {
-                    GD.Print("You didn't go to Brazil!");
+                    var brazilDialogue = new DialogueBuilder("Brazil Event")
+                        .WithText(new Dictionary<Dialogue.Characters, string>
+                        {
+                            { Dialogue.Characters.NPC, "Oh, ok. I will go alone then" },
+                            { Dialogue.Characters.Player, "Ok, have fun" }
+                        })
+                        .Build();
                 }
             })
             .Build();

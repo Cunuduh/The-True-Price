@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xgkyjit11bk6"]
+
+[ext_resource type="PackedScene" uid="uid://cg1yvuf6vdhns" path="res://dialogue_container_self.tscn" id="1_s08g1"]
+[ext_resource type="Texture2D" uid="uid://dahurnehddfkv" path="res://textures/other_message.png" id="2_behi6"]
+
+[node name="DialogueContainer" instance=ExtResource("1_s08g1")]
+layout_direction = 2
+
+[node name="DialogueText" parent="." index="0"]
+horizontal_alignment = 0
+
+[node name="DialogueBubble" parent="DialogueText" index="0"]
+texture = ExtResource("2_behi6")
+patch_margin_left = 5
+patch_margin_right = 3

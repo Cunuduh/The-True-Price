@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cbmmlgyyr17p7"
-path="res://.godot/imported/Coder's Crux.ttf-03ed0eabbf2f6e84e493a3026dedf1bf.fontdata"
+uid="uid://b34gcspxcfi3i"
+path="res://.godot/imported/slkscr.ttf-282312b21d846f2bc507f6e4b19826ea.fontdata"
 
 [deps]
 
-source_file="res://Coder's Crux.ttf"
-dest_files=["res://.godot/imported/Coder's Crux.ttf-03ed0eabbf2f6e84e493a3026dedf1bf.fontdata"]
+source_file="res://slkscr.ttf"
+dest_files=["res://.godot/imported/slkscr.ttf-282312b21d846f2bc507f6e4b19826ea.fontdata"]
 
 [params]
 

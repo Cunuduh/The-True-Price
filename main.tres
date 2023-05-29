@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b2j828oako0na"]
+
+[ext_resource type="FontFile" uid="uid://b34gcspxcfi3i" path="res://slkscr.ttf" id="1_apkkw"]
+
+[resource]
+default_font = ExtResource("1_apkkw")
+default_font_size = 8
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 2
+Label/fonts/font = ExtResource("1_apkkw")
