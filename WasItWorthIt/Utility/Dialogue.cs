@@ -36,6 +36,7 @@ public class Dialogue
             {
                 dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/self_message.png");
                 dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Rtl;
+                dialogueContainer.DialogueText.HorizontalAlignment = HorizontalAlignment.Right;
                 foreach (var property in patchMarginProperties)
                 {
                     var i = Array.IndexOf(patchMarginProperties, property);
@@ -46,6 +47,7 @@ public class Dialogue
             {
                 dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/npc_message.png");
                 dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Ltr;
+                dialogueContainer.DialogueText.HorizontalAlignment = HorizontalAlignment.Left;
                 foreach (var property in patchMarginProperties)
                 {
                     var i = Array.IndexOf(patchMarginProperties, property);
