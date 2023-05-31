@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg1yvuf6vdhns"]
+[gd_scene load_steps=4 format=3 uid="uid://d3kc75gebw06h"]
 
 [ext_resource type="Theme" uid="uid://b2j828oako0na" path="res://main.tres" id="1_hyubm"]
-[ext_resource type="Texture2D" uid="uid://fn8hlcsvyve4" path="res://textures/self_message.png" id="2_oi4oi"]
+[ext_resource type="Script" path="res://WasItWorthIt/DialogueContainer.cs" id="1_rem65"]
+[ext_resource type="Texture2D" uid="uid://fn8hlcsvyve4" path="res://Textures/self_message.png" id="2_j68k7"]
 
 [node name="DialogueContainer" type="VBoxContainer"]
 layout_direction = 3
 offset_left = -95.0
 offset_top = 50.0
-offset_right = -79.0
+offset_right = -87.0
 offset_bottom = 66.0
 alignment = 1
+script = ExtResource("1_rem65")
 
 [node name="DialogueText" type="Label" parent="."]
 z_index = 1
@@ -17,7 +19,6 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_hyubm")
-horizontal_alignment = 2
 metadata/_edit_lock_ = true
 
 [node name="DialogueBubble" type="NinePatchRect" parent="DialogueText"]
@@ -30,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_oi4oi")
+texture = ExtResource("2_j68k7")
 patch_margin_left = 3
 patch_margin_top = 4
 patch_margin_right = 5

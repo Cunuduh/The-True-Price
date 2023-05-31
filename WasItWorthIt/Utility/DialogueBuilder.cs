@@ -10,12 +10,12 @@ public class DialogueBuilder
     {
         _dialogue = new Dialogue(description);
     }
-    public DialogueBuilder WithText(Dictionary<Dialogue.Characters, string> text)
+    public DialogueBuilder WithText(List<KeyValuePair<Dialogue.Characters, string>> text)
     {
         _dialogue.Text = text;
         return this;
     }
-    public DialogueBuilder WithResponses(Dictionary<String, bool> responses)
+    public DialogueBuilder WithResponses(Dictionary<string, bool> responses)
     {
         _dialogue.Responses = responses;
         return this;
@@ -36,50 +36,5 @@ public class DialogueBuilder
     public Dialogue Build()
     {
         return _dialogue;
-    }
-}
-public class ExampleUsage
-{
-    public void Example()
-    {
-        var dialogueBuilder = new DialogueBuilder("Brazil Event")
-            .WithText(new Dictionary<Dialogue.Characters, string>
-            {
-                { Dialogue.Characters.NPC, "Come to Brazil with me!" }
-            })
-            .WithResponses(new Dictionary<string, bool>
-            {
-                { "OK, I will come", false },
-                { "No", false }
-            });
-        if (true) // Clicked on "OK, I will come" button?
-        {
-            dialogueBuilder.SelectResponses("OK, I will come");
-        }
-        var dialogue = dialogueBuilder
-            .WithResult(() =>
-            {
-                if (dialogueBuilder.Responses["OK, I will come"])
-                {
-                    var brazilDialogue = new DialogueBuilder("Brazil Event")
-                        .WithText(new Dictionary<Dialogue.Characters, string>
-                        {
-                            { Dialogue.Characters.NPC, "Just ordered an uber for us. Pls come as soon as possible" },
-                            { Dialogue.Characters.Player, "OK, I'm coming" }
-                        })
-                        .Build();
-                }
-                else
-                {
-                    var brazilDialogue = new DialogueBuilder("Brazil Event")
-                        .WithText(new Dictionary<Dialogue.Characters, string>
-                        {
-                            { Dialogue.Characters.NPC, "Oh, ok. I will go alone then" },
-                            { Dialogue.Characters.Player, "Ok, have fun" }
-                        })
-                        .Build();
-                }
-            })
-            .Build();
     }
 }

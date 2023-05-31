@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://djbwabq3kh0cj"]
+[gd_scene load_steps=6 format=3 uid="uid://y7dfuuhr6yiu"]
 
-[ext_resource type="Texture2D" uid="uid://cnhve4lxixbyc" path="res://textures/text_messages.png" id="1_mmiye"]
-[ext_resource type="Texture2D" uid="uid://cjxl63xfcj7yn" path="res://textures/dopamine_border.png" id="2_0ebr4"]
-[ext_resource type="PackedScene" uid="uid://xgkyjit11bk6" path="res://dialogue_container_other.tscn" id="2_5r3xv"]
-[ext_resource type="PackedScene" uid="uid://cg1yvuf6vdhns" path="res://dialogue_container_self.tscn" id="2_kfyas"]
-[ext_resource type="Texture2D" uid="uid://cjb3yqrkcaoq5" path="res://textures/dopamine_progress.png" id="2_wjvqs"]
+[ext_resource type="Texture2D" uid="uid://cnhve4lxixbyc" path="res://Textures/text_messages.png" id="1_dtyy2"]
 [ext_resource type="Script" path="res://WasItWorthIt/DopamineController.cs" id="4_64nc1"]
 [ext_resource type="Script" path="res://WasItWorthIt/Player.cs" id="5_p3lh2"]
+[ext_resource type="Texture2D" uid="uid://cjxl63xfcj7yn" path="res://Textures/dopamine_border.png" id="5_xqhph"]
+[ext_resource type="Texture2D" uid="uid://cjb3yqrkcaoq5" path="res://Textures/dopamine_progress.png" id="6_xntco"]
 
 [node name="Main" type="Node2D"]
 
@@ -17,28 +15,16 @@ one_shot = true
 [node name="TextMessages" type="Sprite2D" parent="."]
 position = Vector2(96, 180)
 scale = Vector2(2, 2)
-texture = ExtResource("1_mmiye")
+texture = ExtResource("1_dtyy2")
 metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 180.0
 scale = Vector2(2, 2)
 metadata/_edit_lock_ = true
-
-[node name="DialogueContainer2" parent="Control" instance=ExtResource("2_5r3xv")]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 47.0
-offset_right = 17.0
-offset_bottom = 63.0
-
-[node name="DialogueContainer" parent="Control" instance=ExtResource("2_kfyas")]
-layout_mode = 0
-offset_left = -94.5
-offset_top = 27.0
-offset_right = -78.5
-offset_bottom = 43.0
 
 [node name="DopamineProgress" type="TextureProgressBar" parent="Control"]
 z_index = 1
@@ -48,9 +34,10 @@ offset_top = 1.0
 offset_right = 95.0
 offset_bottom = 15.0
 rounded = true
-texture_over = ExtResource("2_0ebr4")
-texture_progress = ExtResource("2_wjvqs")
+texture_over = ExtResource("5_xqhph")
+texture_progress = ExtResource("6_xntco")
 texture_progress_offset = Vector2(0, 1)
+metadata/_edit_lock_ = true
 
 [node name="DopamineController" type="Node" parent="."]
 script = ExtResource("4_64nc1")

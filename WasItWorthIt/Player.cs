@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using WasItWorthIt.Utility;
 namespace WasItWorthIt;
 public partial class Player : Node
 {
@@ -34,6 +35,19 @@ public partial class Player : Node
 					_vapeHits++;
 					_dopamineController.Dopamine += Mathf.RoundToInt(25 * 1/_vapeHits);
 					GD.Print($"Dopamine added: {Mathf.RoundToInt(25 * 1/_vapeHits)}");
+					break;
+				case Key.Ctrl:
+					var dialogue = new DialogueBuilder("example")
+						.WithText(new List<KeyValuePair<Dialogue.Characters, string>>()
+						{
+							new(Dialogue.Characters.Npc, "Why did the chicken cross the road?"),
+							new(Dialogue.Characters.Player, "I don't know, why?"),
+							new(Dialogue.Characters.Npc, "To get to the other side!"),
+							new(Dialogue.Characters.Player, "We are friends no longer."),
+						})
+						.Build();
+					var control = GetNode<Control>("../Control");
+					dialogue.Display(control, dialogue.Text);
 					break;
 			}
 		}
