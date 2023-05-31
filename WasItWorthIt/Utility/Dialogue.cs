@@ -32,26 +32,25 @@ public class Dialogue
                                         select property).ToArray();
             int y = (int)(32 * (caller.GetChildren().Count() - 1) + (previous is null ? 0f : previous.Size.Y / 4f));
             dialogueContainer.Position = new(79, y);
-            switch (dialogueContainer.Character)
+            if (dialogueContainer.Character == Characters.Player)
             {
-                case Characters.Player:
-                    dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/self_message.png");
-                    dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Rtl;
-                    foreach (var property in patchMarginProperties)
-                    {
-                        var i = Array.IndexOf(patchMarginProperties, property);
-                        property.SetValue(dialogueContainer.DialogueBubble, DialogueContainer.PatchMarginPlayer[i]);
-                    }
-                    break;
-                case Characters.Npc:
-                    dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/npc_message.png");
-                    dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Ltr;
-                    foreach (var property in patchMarginProperties)
-                    {
-                        var i = Array.IndexOf(patchMarginProperties, property);
-                        property.SetValue(dialogueContainer.DialogueBubble, DialogueContainer.PatchMarginNpc[i]);
-                    }
-                    break;
+                dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/self_message.png");
+                dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Rtl;
+                foreach (var property in patchMarginProperties)
+                {
+                    var i = Array.IndexOf(patchMarginProperties, property);
+                    property.SetValue(dialogueContainer.DialogueBubble, DialogueContainer.PatchMarginPlayer[i]);
+                }
+            }
+            else
+            {
+                dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/npc_message.png");
+                dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Ltr;
+                foreach (var property in patchMarginProperties)
+                {
+                    var i = Array.IndexOf(patchMarginProperties, property);
+                    property.SetValue(dialogueContainer.DialogueBubble, DialogueContainer.PatchMarginNpc[i]);
+                }
             }
             dialogueContainer.Visible = true;
             previous = dialogueContainer;
