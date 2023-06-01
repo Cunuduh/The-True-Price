@@ -34,7 +34,7 @@ public class Dialogue
             if (dialogueContainer.Character == Characters.Player)
             {
                 dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/self_message.png");
-                dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Ltr;
+                dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Rtl;
                 dialogueContainer.DialogueText.HorizontalAlignment = HorizontalAlignment.Right;
                 dialogueContainer.SizeFlagsHorizontal = Control.SizeFlags.ShrinkEnd;
                 foreach (var property in patchMarginProperties)
