@@ -31,12 +31,12 @@ public class Dialogue
                                         where property.Name.StartsWith("PatchMargin")
                                         orderby property.Name
                                         select property).ToArray();
-            dialogueContainer.Position = new(79, 0);
             if (dialogueContainer.Character == Characters.Player)
             {
                 dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/self_message.png");
-                dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Rtl;
+                dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Ltr;
                 dialogueContainer.DialogueText.HorizontalAlignment = HorizontalAlignment.Right;
+                dialogueContainer.SizeFlagsHorizontal = Control.SizeFlags.ShrinkEnd;
                 foreach (var property in patchMarginProperties)
                 {
                     var i = Array.IndexOf(patchMarginProperties, property);
@@ -48,6 +48,7 @@ public class Dialogue
                 dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/npc_message.png");
                 dialogueContainer.LayoutDirection = Control.LayoutDirectionEnum.Ltr;
                 dialogueContainer.DialogueText.HorizontalAlignment = HorizontalAlignment.Left;
+                dialogueContainer.SizeFlagsHorizontal = Control.SizeFlags.ShrinkBegin;
                 foreach (var property in patchMarginProperties)
                 {
                     var i = Array.IndexOf(patchMarginProperties, property);
@@ -61,7 +62,7 @@ public class Dialogue
         previous = null;
         for (int i = 0; i < dialogueContainers.Length; i++)
         {
-            dialogueContainers[i].Position = dialogueContainers[i].Position with { Y = (previous is not null ? CalculateYSize(WordWrap(previous.DialogueText.Text)) : 0) + (previous is not null ? previous.Position.Y : 32) };
+            dialogueContainers[i].Position = dialogueContainers[i].Position with { Y = (previous is not null ? CalculateYSize(WordWrap(previous.DialogueText.Text)) + previous.Position.Y : 0) };
             previous = dialogueContainers[i];
         }
     }
@@ -85,11 +86,14 @@ public class Dialogue
             }
             currentLine.Append(word + " ");
         }
-        lines.Add(currentLine.ToString());
+        if (currentLine.Length > 0)
+        {
+            lines.Add(currentLine.ToString());
+        }
         var ret = new List<string>();
         foreach (var line in lines)
         {
-            var substrings = from Match match in Regex.Matches(line, ".{1,15}")
+            var substrings = from Match match in Regex.Matches(line.Trim(), ".{1,15}")
                              select match.Value;
             ret.AddRange(substrings);
         }

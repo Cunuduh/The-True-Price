@@ -44,10 +44,13 @@ public partial class Player : Node
 							new(Dialogue.Characters.Player, "I don't know, why?"),
 							new(Dialogue.Characters.Npc, "To get to the other side!"),
 							new(Dialogue.Characters.Player, "We are friends no longer."),
+							new(Dialogue.Characters.Npc, "I'm sorry, I didn't mean to offend you."),
+							new(Dialogue.Characters.Player, "I'm just kidding."),
+							new(Dialogue.Characters.Npc, "As an AI language model, I am incapable of understanding jokes. Please provide more information on why you are kidding."),
 						})
 						.Build();
-					var control = GetNode<Control>("../Control");
-					dialogue.Display(control, dialogue.Text);
+					var container = GetNode<VBoxContainer>("../Control/ScrollContainer/VBoxContainer");
+					dialogue.Display(container, dialogue.Text);
 					break;
 			}
 		}
