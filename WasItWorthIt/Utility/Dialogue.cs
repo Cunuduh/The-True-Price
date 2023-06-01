@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 namespace WasItWorthIt.Utility;
 public class Dialogue
@@ -24,14 +25,13 @@ public class Dialogue
         {
             caller.AddChild(GD.Load<PackedScene>("res://dialogue_container.tscn").Instantiate() as DialogueContainer);
             var dialogueContainer = caller.GetChildren().OfType<DialogueContainer>().Last();
-            dialogueContainer.DialogueText.Text = CreateAppropriateLineBreaks(line.Value);
+            dialogueContainer.DialogueText.Text = WordWrap(line.Value);
             dialogueContainer.Character = line.Key;
             var patchMarginProperties = (from property in typeof(NinePatchRect).GetProperties()
                                         where property.Name.StartsWith("PatchMargin")
-                                        orderby property.Name ascending
+                                        orderby property.Name
                                         select property).ToArray();
-            int y = (int)(32 * (caller.GetChildren().Count() - 1) + (previous is null ? 0f : previous.Size.Y / 4f));
-            dialogueContainer.Position = new(79, y);
+            dialogueContainer.Position = new(79, 0);
             if (dialogueContainer.Character == Characters.Player)
             {
                 dialogueContainer.DialogueBubble.Texture = GD.Load<Texture2D>("res://Textures/self_message.png");
@@ -57,29 +57,43 @@ public class Dialogue
             dialogueContainer.Visible = true;
             previous = dialogueContainer;
         }
+        DialogueContainer[] dialogueContainers = caller.GetChildren().OfType<DialogueContainer>().ToArray();
+        previous = null;
+        for (int i = 0; i < dialogueContainers.Length; i++)
+        {
+            dialogueContainers[i].Position = dialogueContainers[i].Position with { Y = (previous is not null ? CalculateYSize(WordWrap(previous.DialogueText.Text)) : 0) + (previous is not null ? previous.Position.Y : 32) };
+            previous = dialogueContainers[i];
+        }
     }
-    private string CreateAppropriateLineBreaks(string text)
+    private int CalculateYSize(string text)
     {
-        const int maxLineLength = 16;
+        var lines = text.Split('\n');
+        return 4 + (lines.Length * 9);
+    }
+    private string WordWrap(string text)
+    {
+        const int maxLineLength = 15;
         var words = text.Split(' ');
         var lines = new List<string>();
         var currentLine = new StringBuilder();
         foreach (var word in words)
         {
-            if (currentLine.Length + word.Length + 1 > maxLineLength)
+            if (currentLine.Length + word.Length > maxLineLength)
             {
-                lines.Add(currentLine.ToString().Trim());
+                lines.Add(currentLine.ToString());
                 currentLine.Clear();
             }
-
-            currentLine.Append(word);
-            currentLine.Append(' ');
+            currentLine.Append(word + " ");
         }
-        if (currentLine.Length > 0)
+        lines.Add(currentLine.ToString());
+        var ret = new List<string>();
+        foreach (var line in lines)
         {
-            lines.Add(currentLine.ToString().Trim());
+            var substrings = from Match match in Regex.Matches(line, ".{1,15}")
+                             select match.Value;
+            ret.AddRange(substrings);
         }
-        return string.Join("\n", lines);
+        return string.Join("\n", ret).Trim();
     }
     public enum Characters
     {

@@ -33,8 +33,8 @@ public partial class Player : Node
 					break;
 				case Key.Space:
 					_vapeHits++;
-					_dopamineController.Dopamine += Mathf.RoundToInt(25 * 1/_vapeHits);
-					GD.Print($"Dopamine added: {Mathf.RoundToInt(25 * 1/_vapeHits)}");
+					_dopamineController.Dopamine += Mathf.RoundToInt(50 * 1/_vapeHits);
+					GD.Print($"Dopamine added: {Mathf.RoundToInt(50 * 1/_vapeHits)}");
 					break;
 				case Key.Ctrl:
 					var dialogue = new DialogueBuilder("example")
