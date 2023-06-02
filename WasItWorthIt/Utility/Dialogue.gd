@@ -48,7 +48,7 @@ func display(caller: Node, lines: Array[Dictionary]) -> void:
 
 func calculate_y_size(input_text: String) -> int:
 	var lines = input_text.split("\n")
-	return 4 + (lines.size() * 9)
+	return 6 * lines.size() + 6
 
 func word_wrap(input_text: String) -> String:
 	const MAX_LINE_LENGTH = 15
@@ -66,8 +66,8 @@ func word_wrap(input_text: String) -> String:
 	for line in lines:
 		var substrings = []
 		for i in range(0, line.length(), MAX_LINE_LENGTH):
-			substrings.append(line.substr(i, MAX_LINE_LENGTH))
-		ret.append("\n".join(substrings))
+			substrings.append(line.substr(i, MAX_LINE_LENGTH).strip_edges())
+		ret.append("\n".join(substrings).strip_edges())
 	return "\n".join(ret).strip_edges()
 
 func _defaultresultant() -> void:

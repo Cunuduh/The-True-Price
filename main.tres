@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://b2j828oako0na"]
 
-[ext_resource type="FontFile" uid="uid://b34gcspxcfi3i" path="res://slkscr.ttf" id="1_apkkw"]
+[ext_resource type="FontFile" uid="uid://bvw5nemfgqfxq" path="res://CG pixel 4x5.ttf" id="1_irh3v"]
 [ext_resource type="Texture2D" uid="uid://c866j5ikqbpn1" path="res://Textures/v_scrollbar.png" id="2_jmq13"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_favjh"]
@@ -16,11 +16,11 @@ thickness = 4
 vertical = true
 
 [resource]
-default_font = ExtResource("1_apkkw")
-default_font_size = 8
+default_font = ExtResource("1_irh3v")
+default_font_size = 5
 Label/colors/font_color = Color(0, 0, 0, 1)
-Label/constants/line_spacing = 0
-Label/fonts/font = ExtResource("1_apkkw")
+Label/constants/line_spacing = 1
+Label/fonts/font = ExtResource("1_irh3v")
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_favjh")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_favjh")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_favjh")

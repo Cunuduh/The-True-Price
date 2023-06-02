@@ -24,27 +24,11 @@ func _input(event: InputEvent) -> void:
 				var dialogue: Dialogue = DialogueBuilder.new() \
 					.with_text([
 						{
-							"text": "Why did the chicken cross the road?",
+							"text": "Hello, world!",
 							"character": Dialogue.Characters.NPC
 						},
 						{
-							"text": "I don't know, why?",
-							"character": Dialogue.Characters.PLAYER
-						},
-						{
-							"text": "To get to the other side!",
-							"character": Dialogue.Characters.NPC
-						},
-						{
-							"text": "We are no longer friends.",
-							"character": Dialogue.Characters.PLAYER
-						},
-						{
-							"text": "I'm sorry!!",
-							"character": Dialogue.Characters.NPC
-						},
-						{
-							"text": "just kidding lol",
+							"text": "Hello, world!",
 							"character": Dialogue.Characters.PLAYER
 						}
 					]).build()
