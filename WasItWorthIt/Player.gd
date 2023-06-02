@@ -7,13 +7,12 @@ var _vape_hits: int = 0
 var _dopamine_controller: DopamineController
 
 func _ready() -> void:
-	_dopamine_controller = get_node("../DopamineController") as DopamineController
+	_dopamine_controller = get_node("../DopamineController")
 	connect("interaction_score_change", on_interaction_score_change)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
-		var event_key = event as InputEventKey
-		match event_key.keycode:
+		match event.keycode:
 			KEY_ESCAPE:
 				get_tree().quit()
 			KEY_SPACE:

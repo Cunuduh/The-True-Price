@@ -15,7 +15,7 @@ func _init() -> void:
 func display(caller: Node, lines: Array[Dictionary]) -> void:
 	var previous: DialogueContainer = null
 	for line in lines:
-		var dialogue_container = load("res://dialogue_container.tscn").instantiate() as DialogueContainer
+		var dialogue_container = load("res://dialogue_container.tscn").instantiate()
 		caller.add_child(dialogue_container)
 		dialogue_container.dialogue_text.text = word_wrap(line["text"])
 		dialogue_container.character = line["character"]
