@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3kc75gebw06h"]
 
-[ext_resource type="Script" path="res://WasItWorthIt/DialogueContainer.gd" id="1_frv53"]
 [ext_resource type="Theme" uid="uid://b2j828oako0na" path="res://main.tres" id="1_hyubm"]
+[ext_resource type="Script" path="res://WasItWorthIt/dialogue_container.gd" id="1_i834a"]
 [ext_resource type="Texture2D" uid="uid://fn8hlcsvyve4" path="res://Textures/self_message.png" id="2_j68k7"]
 
 [node name="DialogueContainer" type="MarginContainer"]
@@ -11,7 +11,7 @@ offset_right = 10.0
 offset_bottom = 12.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
-script = ExtResource("1_frv53")
+script = ExtResource("1_i834a")
 
 [node name="DialogueBubble" type="NinePatchRect" parent="."]
 z_index = -1

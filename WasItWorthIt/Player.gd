@@ -21,16 +21,16 @@ func _input(event: InputEvent) -> void:
 				_dopamine_controller.dopamine += dopamine
 			KEY_CTRL:
 				var dialogue: Dialogue = DialogueBuilder.new() \
-					.with_text([
-						{
-							"text": "Hello, world!",
-							"character": Dialogue.Characters.NPC
-						},
-						{
-							"text": "Hello, world!",
-							"character": Dialogue.Characters.PLAYER
-						}
-					]).build()
+						.with_text([
+							{
+								"text": "Hello, world!",
+								"character": Dialogue.Characters.NPC
+							},
+							{
+								"text": "Hello, world!",
+								"character": Dialogue.Characters.PLAYER
+							}
+						]).build()
 				var container = get_node("../Control/ScrollContainer/VBoxContainer")
 				dialogue.display(container, dialogue.text)
 

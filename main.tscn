@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cnhve4lxixbyc" path="res://Textures/text_messages.png" id="1_dtyy2"]
 [ext_resource type="Theme" uid="uid://b2j828oako0na" path="res://main.tres" id="2_o75pw"]
-[ext_resource type="Script" path="res://WasItWorthIt/DopamineController.gd" id="5_uh2jc"]
+[ext_resource type="Script" path="res://WasItWorthIt/dopamine_controller.gd" id="5_e3epj"]
 [ext_resource type="Texture2D" uid="uid://cjxl63xfcj7yn" path="res://Textures/dopamine_border.png" id="5_xqhph"]
-[ext_resource type="Script" path="res://WasItWorthIt/Player.gd" id="6_ip7ph"]
+[ext_resource type="Script" path="res://WasItWorthIt/player.gd" id="6_2t3r8"]
 [ext_resource type="Texture2D" uid="uid://cjb3yqrkcaoq5" path="res://Textures/dopamine_progress.png" id="6_xntco"]
 
 [node name="Main" type="Node2D"]
@@ -54,7 +54,7 @@ texture_progress_offset = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
 [node name="DopamineController" type="Node" parent="."]
-script = ExtResource("5_uh2jc")
+script = ExtResource("5_e3epj")
 
 [node name="Player" type="Node" parent="."]
-script = ExtResource("6_ip7ph")
+script = ExtResource("6_2t3r8")
