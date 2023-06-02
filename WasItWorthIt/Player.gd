@@ -23,12 +23,24 @@ func _input(event: InputEvent) -> void:
 				var dialogue: Dialogue = DialogueBuilder.new() \
 						.with_text([
 							{
-								"text": "Hello, world!",
+								"text": "Does the black moon howl?",
 								"character": Dialogue.Characters.NPC
 							},
 							{
-								"text": "Hello, world!",
+								"text": "There is no black moon, and it does not howl.",
 								"character": Dialogue.Characters.PLAYER
+							},
+							{
+								"text": "Look up at the sky. It calls unto us a new age.",
+								"character": Dialogue.Characters.NPC
+							},
+							{
+								"text": "When the world is ground into dust, what is left?",
+								"character": Dialogue.Characters.NPC
+							},
+							{
+								"text": "The black moon's howl.",
+								"character": Dialogue.Characters.NPC
 							}
 						]).build()
 				var container = get_node("../Control/ScrollContainer/VBoxContainer")
