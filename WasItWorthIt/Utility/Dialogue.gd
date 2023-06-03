@@ -10,7 +10,7 @@ var resultant: Callable
 func _init() -> void:
 	text = []
 	responses = {}
-	resultant = Callable(self, "_defaultresultant")
+	resultant = Callable(self, "_default_resultant")
 
 func display(caller: Node, lines: Array[Dictionary]) -> void:
 	var previous: DialogueContainer = null
@@ -51,10 +51,10 @@ func calculate_y_size(input_text: String) -> int:
 	return 6 * lines.size() + 6
 
 func word_wrap(input_text: String) -> String:
-	const MAX_LINE_LENGTH = 15
-	var words = input_text.split(" ")
-	var lines = []
-	var current_line = ""
+	const MAX_LINE_LENGTH := 15
+	var words := input_text.split(" ")
+	var lines: PackedStringArray = []
+	var current_line := ""
 	for word in words:
 		if current_line.length() + word.length() > MAX_LINE_LENGTH:
 			lines.append(current_line)
@@ -62,13 +62,13 @@ func word_wrap(input_text: String) -> String:
 		current_line += word + " "
 	if current_line.length() > 0:
 		lines.append(current_line)
-	var ret = []
+	var ret: PackedStringArray = []
 	for line in lines:
-		var substrings = []
+		var substrings: PackedStringArray = []
 		for i in range(0, line.length(), MAX_LINE_LENGTH):
 			substrings.append(line.substr(i, MAX_LINE_LENGTH).strip_edges())
 		ret.append("\n".join(substrings).strip_edges())
 	return "\n".join(ret).strip_edges()
 
-func _defaultresultant() -> void:
+func _default_resultant() -> void:
 	pass

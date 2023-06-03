@@ -3,7 +3,7 @@ extends Node
 
 signal interaction_score_change(interaction_score: Dictionary)
 
-var _vape_hits: int = 0
+var _vape_hits := 0
 var _dopamine_controller: DopamineController
 
 func _ready() -> void:
@@ -17,10 +17,10 @@ func _input(event: InputEvent) -> void:
 				get_tree().quit()
 			KEY_SPACE:
 				_vape_hits += 1
-				var dopamine = 50 * 1 / _vape_hits
+				var dopamine := 50 * 1 / _vape_hits
 				_dopamine_controller.dopamine += dopamine
 			KEY_CTRL:
-				var dialogue: Dialogue = DialogueBuilder.new() \
+				var dialogue := DialogueBuilder.new() \
 						.with_text([
 							{
 								"text": "Does the black moon howl?",
