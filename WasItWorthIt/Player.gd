@@ -1,14 +1,14 @@
 class_name Player
 extends Node
 
-signal interaction_score_change(interaction_score: Dictionary)
+signal interaction_score_changed(interaction_score: Dictionary)
 
 var _vape_hits := 0
 var _dopamine_controller: DopamineController
 
 func _ready() -> void:
 	_dopamine_controller = get_node("../DopamineController")
-	connect("interaction_score_change", on_interaction_score_change)
+	connect("interaction_score_changed", on_interaction_score_change)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:

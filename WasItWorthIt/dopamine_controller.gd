@@ -1,7 +1,7 @@
 class_name DopamineController
 extends Node
 
-signal dopamine_change(dopamine: int)
+signal dopamine_changed(dopamine: int)
 
 var dopamine: int:
 	set(value):
@@ -9,14 +9,14 @@ var dopamine: int:
 			dopamine = 0
 		else:
 			dopamine = value
-		emit_signal("dopamine_change", dopamine)
+		emit_signal("dopamine_changed", dopamine)
 var dopamine_bar: TextureProgressBar
 var dopamine_timer: Timer
 
 func _ready() -> void:
 	dopamine_bar = get_node("../Control/DopamineProgress")
 	dopamine_timer = get_node("../DopamineTimer")
-	connect("dopamine_change", on_dopamine_change)
+	connect("dopamine_changed", on_dopamine_change)
 	dopamine_timer.connect("timeout", check_dopamine)
 	dopamine = 0
 

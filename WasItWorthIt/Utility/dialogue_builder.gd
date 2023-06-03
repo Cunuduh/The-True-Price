@@ -1,7 +1,8 @@
 class_name DialogueBuilder
-var _dialogue := Dialogue.new()
+var _dialogue: Dialogue
 
 func _init() -> void:
+	_dialogue = Dialogue.new()
 	_dialogue.resultant = Callable(self, "_default_resultant")
 
 func with_text(text: Array[Dictionary]) -> DialogueBuilder:
