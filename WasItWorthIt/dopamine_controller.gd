@@ -29,7 +29,7 @@ func on_dopamine_change(new_dopamine: int) -> void:
 
 func check_dopamine() -> void:
 	if dopamine <= 0:
-		emit_signal("dopamine_change", 0)
+		emit_signal("dopamine_changed", 0)
 	else:
 		dopamine_timer.stop()
 
@@ -38,4 +38,4 @@ func get_dopamine() -> int:
 
 func set_dopamine(new_dopamine: int) -> void:
 	dopamine = new_dopamine
-	emit_signal("dopamine_change", dopamine)
+	emit_signal("dopamine_changed", dopamine)
