@@ -4,13 +4,12 @@ enum Characters {
 	NPC
 }
 var text: Array[Dictionary]
-var responses: Dictionary
-var resultant: Callable
+# [String, Characters]
+var responses: Array[String]
 
 func _init() -> void:
 	text = []
-	responses = {}
-	resultant = Callable(self, "_default_resultant")
+	responses = []
 
 func display(caller: Node, lines: Array[Dictionary]) -> void:
 	var previous: DialogueContainer = null
@@ -70,5 +69,5 @@ func word_wrap(input_text: String) -> String:
 		ret.append("\n".join(substrings).strip_edges())
 	return "\n".join(ret).strip_edges()
 
-func _default_resultant() -> void:
-	pass
+func select_response(selected_response: Dictionary, handler: Callable) -> void:
+	handler.call(selected_response)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://y7dfuuhr6yiu"]
+[gd_scene load_steps=8 format=3 uid="uid://y7dfuuhr6yiu"]
 
 [ext_resource type="Texture2D" uid="uid://cnhve4lxixbyc" path="res://Textures/text_messages.png" id="1_dtyy2"]
 [ext_resource type="Theme" uid="uid://b2j828oako0na" path="res://main.tres" id="2_o75pw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cjxl63xfcj7yn" path="res://Textures/dopamine_border.png" id="5_xqhph"]
 [ext_resource type="Script" path="res://WasItWorthIt/player.gd" id="6_2t3r8"]
 [ext_resource type="Texture2D" uid="uid://cjb3yqrkcaoq5" path="res://Textures/dopamine_progress.png" id="6_xntco"]
+[ext_resource type="Texture2D" uid="uid://s1yauj01emnv" path="res://Textures/desktop.png" id="7_52k4u"]
 
 [node name="Main" type="Node2D"]
 
@@ -58,3 +59,9 @@ script = ExtResource("5_e3epj")
 
 [node name="Player" type="Node" parent="."]
 script = ExtResource("6_2t3r8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 96.0
+offset_right = 240.0
+offset_bottom = 180.0
+texture = ExtResource("7_52k4u")
