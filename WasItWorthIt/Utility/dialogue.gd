@@ -69,5 +69,5 @@ func word_wrap(input_text: String) -> String:
 		ret.append("\n".join(substrings).strip_edges())
 	return "\n".join(ret).strip_edges()
 
-func select_response(selected_response: Dictionary, handler: Callable) -> void:
+func select_response(selected_response: String, handler: Callable) -> void:
 	handler.call(selected_response)
