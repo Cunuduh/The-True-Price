@@ -60,7 +60,7 @@ script = ExtResource("5_e3epj")
 [node name="Player" type="Node" parent="."]
 script = ExtResource("6_2t3r8")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="EventPicture" type="TextureRect" parent="."]
 offset_left = 96.0
 offset_right = 240.0
 offset_bottom = 180.0
