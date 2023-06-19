@@ -23,3 +23,12 @@ func get_score() -> int:
 	score = work + average
 	score -= vape_hits * 10
 	return score
+
+func reset_all() -> void:
+	work = 0
+	dopamine = 75
+	average_dopamine = []
+	vape_hits = 0
+	won = false
+	score = 0
+	vapes_rejected = 0
