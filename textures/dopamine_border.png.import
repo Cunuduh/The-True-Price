@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjxl63xfcj7yn"
-path="res://.godot/imported/dopamine_border.png-11fcd7eb9291747f3aa3fa3c7263fe4e.ctex"
+path="res://.godot/imported/dopamine_border.png-6b3733c683b9fbf373c440e65cdd096a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/dopamine_border.png"
-dest_files=["res://.godot/imported/dopamine_border.png-11fcd7eb9291747f3aa3fa3c7263fe4e.ctex"]
+source_file="res://textures/dopamine_border.png"
+dest_files=["res://.godot/imported/dopamine_border.png-6b3733c683b9fbf373c440e65cdd096a.ctex"]
 
 [params]
 

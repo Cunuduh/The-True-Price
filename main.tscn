@@ -1,18 +1,79 @@
-[gd_scene load_steps=8 format=3 uid="uid://y7dfuuhr6yiu"]
+[gd_scene load_steps=15 format=3 uid="uid://y7dfuuhr6yiu"]
 
-[ext_resource type="Texture2D" uid="uid://cnhve4lxixbyc" path="res://Textures/text_messages.png" id="1_dtyy2"]
+[ext_resource type="Script" path="res://scripts/dopamine_controller.gd" id="1_1lqg4"]
+[ext_resource type="FontFile" uid="uid://bvw5nemfgqfxq" path="res://CG pixel 4x5.ttf" id="1_4cakt"]
+[ext_resource type="Texture2D" uid="uid://cnhve4lxixbyc" path="res://textures/text_messages.png" id="1_dtyy2"]
 [ext_resource type="Theme" uid="uid://b2j828oako0na" path="res://main.tres" id="2_o75pw"]
-[ext_resource type="Script" path="res://WasItWorthIt/dopamine_controller.gd" id="5_e3epj"]
-[ext_resource type="Texture2D" uid="uid://cjxl63xfcj7yn" path="res://Textures/dopamine_border.png" id="5_xqhph"]
-[ext_resource type="Script" path="res://WasItWorthIt/player.gd" id="6_2t3r8"]
-[ext_resource type="Texture2D" uid="uid://cjb3yqrkcaoq5" path="res://Textures/dopamine_progress.png" id="6_xntco"]
-[ext_resource type="Texture2D" uid="uid://s1yauj01emnv" path="res://Textures/desktop.png" id="7_52k4u"]
+[ext_resource type="Script" path="res://scripts/game_timer.gd" id="2_sfa2a"]
+[ext_resource type="Script" path="res://scripts/utility/event_handler.gd" id="3_6q5vy"]
+[ext_resource type="Texture2D" uid="uid://cjxl63xfcj7yn" path="res://textures/dopamine_border.png" id="5_xqhph"]
+[ext_resource type="Texture2D" uid="uid://cjb3yqrkcaoq5" path="res://textures/dopamine_progress.png" id="6_xntco"]
+[ext_resource type="Texture2D" uid="uid://b5uxesjuu55ri" path="res://textures/regular.png" id="7_veqxg"]
+[ext_resource type="Texture2D" uid="uid://ceitsvwxym2au" path="res://textures/notification.png" id="11_ixq2w"]
+[ext_resource type="Texture2D" uid="uid://62ks4wx5nbch" path="res://textures/work_button_enabled.png" id="12_lcvrf"]
+[ext_resource type="Texture2D" uid="uid://dhx4wtm4glgc4" path="res://textures/work_button_disabled.png" id="13_l5dwl"]
+[ext_resource type="Texture2D" uid="uid://bc3jpw8dergy" path="res://textures/work_button_pressed.png" id="13_ynoha"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pddlw"]
+line_spacing = 1.0
+font = ExtResource("1_4cakt")
+font_size = 5
 
 [node name="Main" type="Node2D"]
 
-[node name="DopamineTimer" type="Timer" parent="."]
-wait_time = 10.0
+[node name="OneSecondTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ThreeSecondTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="GameTimer" type="Label" parent="."]
+z_index = 1
+offset_left = 96.0
+offset_top = 1.0
+offset_right = 156.0
+offset_bottom = 8.0
+text = "time left: 0:00"
+label_settings = SubResource("LabelSettings_pddlw")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_sfa2a")
+
+[node name="Timer" type="Timer" parent="GameTimer"]
+wait_time = 300.0
 one_shot = true
+autostart = true
+
+[node name="WorkPercentage" type="Label" parent="."]
+z_index = 1
+offset_left = 29.0
+offset_top = 157.0
+offset_right = 39.0
+offset_bottom = 163.0
+text = "0%
+"
+label_settings = SubResource("LabelSettings_pddlw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DopaminePercentage" type="Label" parent="."]
+z_index = 1
+offset_left = 74.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 26.0
+text = "0%
+"
+label_settings = SubResource("LabelSettings_pddlw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DopamineController" type="Node" parent="."]
+script = ExtResource("1_1lqg4")
+
+[node name="EventHandler" type="Node" parent="."]
+script = ExtResource("3_6q5vy")
 
 [node name="TextMessages" type="Sprite2D" parent="."]
 position = Vector2(48, 90)
@@ -32,7 +93,7 @@ layout_mode = 0
 offset_left = 1.0
 offset_top = 29.0
 offset_right = 95.0
-offset_bottom = 160.0
+offset_bottom = 152.0
 theme = ExtResource("2_o75pw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
@@ -54,14 +115,58 @@ texture_progress = ExtResource("6_xntco")
 texture_progress_offset = Vector2(0, 1)
 metadata/_edit_lock_ = true
 
-[node name="DopamineController" type="Node" parent="."]
-script = ExtResource("5_e3epj")
+[node name="WorkProgress" type="TextureProgressBar" parent="Control"]
+z_index = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 165.0
+offset_right = 95.0
+offset_bottom = 179.0
+rounded = true
+texture_over = ExtResource("5_xqhph")
+texture_progress = ExtResource("6_xntco")
+texture_progress_offset = Vector2(0, 1)
 
-[node name="Player" type="Node" parent="."]
-script = ExtResource("6_2t3r8")
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 117.0
+offset_right = 95.0
+offset_bottom = 153.0
+alignment = 1
 
-[node name="EventPicture" type="TextureRect" parent="."]
-offset_left = 96.0
-offset_right = 240.0
-offset_bottom = 180.0
-texture = ExtResource("7_52k4u")
+[node name="EventPicture" type="Sprite2D" parent="."]
+position = Vector2(168, 90)
+texture = ExtResource("7_veqxg")
+
+[node name="Notification" type="TextureButton" parent="."]
+visible = false
+z_index = 4
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 64.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("11_ixq2w")
+
+[node name="WorkButton" type="TextureButton" parent="."]
+offset_left = 1.0
+offset_top = 154.0
+offset_right = 27.0
+offset_bottom = 164.0
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("12_lcvrf")
+texture_pressed = ExtResource("13_ynoha")
+texture_disabled = ExtResource("13_l5dwl")
+
+[connection signal="timeout" from="OneSecondTimer" to="GameTimer" method="_on_one_second_timer_timeout"]
+[connection signal="timeout" from="ThreeSecondTimer" to="DopamineController" method="_on_three_second_timer_timeout"]
+[connection signal="timeout" from="GameTimer/Timer" to="GameTimer" method="_on_timer_timeout"]
+[connection signal="toggled" from="WorkButton" to="EventHandler" method="_on_work_button_toggled"]

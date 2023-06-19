@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqbqtuihoyq2y"]
+
+[ext_resource type="AudioStream" uid="uid://gak7fx2rshtr" path="res://audio/synth.wav" id="1_buaug"]
+[ext_resource type="Script" path="res://scripts/utility/audio.gd" id="1_y3uy3"]
+[ext_resource type="AudioStream" uid="uid://xq3h85oocg42" path="res://audio/13.wav" id="2_i0f7e"]
+
+[node name="Audio" type="Node"]
+script = ExtResource("1_y3uy3")
+
+[node name="SynthButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_buaug")
+bus = &"Muffled"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_i0f7e")

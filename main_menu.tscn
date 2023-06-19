@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4jkvpp5kgf72"]
+
+[ext_resource type="Texture2D" uid="uid://d0jrgc5uuywi0" path="res://textures/start_button.png" id="2_m5uj5"]
+[ext_resource type="Texture2D" uid="uid://cypum2d4na0eu" path="res://textures/logo.png" id="3_052xh"]
+[ext_resource type="Script" path="res://scripts/start_button.gd" id="3_cunvv"]
+[ext_resource type="Texture2D" uid="uid://c2e2nltaa1cjg" path="res://textures/start_button_highlighted.png" id="3_kc6ic"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 59.0
+offset_top = 92.0
+offset_right = 183.0
+offset_bottom = 124.0
+texture_normal = ExtResource("2_m5uj5")
+texture_hover = ExtResource("3_kc6ic")
+script = ExtResource("3_cunvv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 44.0
+offset_top = 41.0
+offset_right = 201.0
+offset_bottom = 81.0
+texture = ExtResource("3_052xh")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

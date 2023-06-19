@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Was It Worth It?"
-run/main_scene="res://main.tscn"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerVariables="*res://scripts/utility/player_variables.gd"
+Audio="*res://audio.tscn"
 
 [display]
 

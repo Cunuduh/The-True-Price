@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b2j828oako0na"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b2j828oako0na"]
 
 [ext_resource type="FontFile" uid="uid://bvw5nemfgqfxq" path="res://CG pixel 4x5.ttf" id="1_irh3v"]
-[ext_resource type="Texture2D" uid="uid://c866j5ikqbpn1" path="res://Textures/v_scrollbar.png" id="2_jmq13"]
+[ext_resource type="Texture2D" uid="uid://c866j5ikqbpn1" path="res://textures/v_scrollbar.png" id="2_jmq13"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nhq1e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_favjh"]
 texture = ExtResource("2_jmq13")
@@ -17,6 +19,13 @@ vertical = true
 [resource]
 default_font = ExtResource("1_irh3v")
 default_font_size = 5
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_nhq1e")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/constants/line_spacing = 1
 Label/fonts/font = ExtResource("1_irh3v")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wyjv7diy42rf"
-path="res://.godot/imported/npc_message.png-aab81be8a131a66925be53769a0f4719.ctex"
+path="res://.godot/imported/npc_message.png-3b4b50c0ecba132f8e14aad7c945d062.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/npc_message.png"
-dest_files=["res://.godot/imported/npc_message.png-aab81be8a131a66925be53769a0f4719.ctex"]
+source_file="res://textures/npc_message.png"
+dest_files=["res://.godot/imported/npc_message.png-3b4b50c0ecba132f8e14aad7c945d062.ctex"]
 
 [params]
 
